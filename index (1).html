@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchow wok</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <link rel="stylesheet" href="style (1).css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="mainlink"><span style="color: red; float: left ; padding-right: 20px;">Manchow </span>Wok</h1>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html" target="_blank">About</a></li>
+                <li><a href="contact.html" target="_blank">Contact</a></li>
+            </ul>
+        </div>
+        <div class="half-cylinder"></div>
+    </div>
+
+    <h1 class="title">THE ULTIMATE<br>CHINESE TASTE</h1>
+    <button class="btn"><a href="menu.html" target="_blank">Menu</a></button>
+
+    <div class="cylinder-container">
+        <div class="cylinder"></div>
+        <div class="cylinder1"></div>
+        <div class="cylinder2"></div>
+    </div>
+
+    <div class="image-container">
+        <div class="prawn">
+            <img src="rice.png">
+        </div>
+        <div class="roll">
+            <img src="pngegg (2).png">
+        </div>
+        <div class="momo">
+            <img src="pngwing.com (2).png">
+        </div>
+    </div>
+
+    <div class="card-section">
+        <div class="image">
+            <img src="Untitled design.png">
+        </div>
+        <div class="card-container">
+            <div class="card-row">
+                <div class="card card1">
+                    <div class="card-image">
+                        <img src="Abu Dhabi Mall.jpeg" alt="Image 1">
+                    </div>
+                    <div class="card-content">
+                        <h3>Abu Dhabi Location</h3>
+                        <p>location 1</p>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="card-image">
+                        <img src="al wadha mall.jpeg" alt="Image 2">
+                    </div>
+                    <div class="card-content">
+                        <h3>Al wadha location</h3>
+                        <p>location2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card card3">
+                    <div class="card-image">
+                        <img src="khalidiyah Mall.jpeg" alt="Image 3">
+                    </div>
+                    <div class="card-content">
+                        <h3>khalidiyah location</h3>
+                        <p>location3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <button class="location">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> Visit Us
+    </button>
+</body>
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    function observeCards() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    if (index === 0) {
+                        entry.target.classList.add('animate');
+                        entry.target.querySelector('.card-image').classList.add('animate');
+                        observer.unobserve(entry.target);
+                    } else if (index === 1) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                            entry.target.querySelector('.card-image').classList.add('animate');
+                            observer.unobserve(entry.target);
+                        }, 500);
+                    } else {
+                        entry.target.classList.add('animate');
+                        entry.target.querySelector('.card-image').classList.add('animate');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+    }
+
+    observeCards();
+</script>
+</html>

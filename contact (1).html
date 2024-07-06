@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="x-icon" href="logo.png">
+  <title>Manchow Contact</title>
+  <style>
+    /* Reuse the same styles from the main page */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      padding-right: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .mainlink {
+      margin: 0;
+      padding: 0 20px 0 50px;
+      display: flex;
+      align-items: center;
+      font-family: OPTIPEKING;
+      font-size: 40px;
+      color: #333;
+    }
+
+    .mainlink span {
+      color: #e53935;
+      padding-right: 20px;
+    }
+
+    .links {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    
+
+    .links li {
+      margin: 0 20px;
+    }
+
+    .links li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .links li a:hover {
+      color: #e53935;
+    }
+
+    @font-face {
+      font-family: myFirstFont;
+      src: url(OPTIPeking.otf);
+    }
+
+    /* New styles for the contact form */
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 100px);
+    }
+
+    .contact-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 500px;
+    }
+
+    .contact-title {
+      font-family: myFirstFont;
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 20px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f5f5f5;
+    }
+
+    .contact-form button {
+      background-color: #e53935;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0 8px #c62828;
+      transition: all 0.3s ease-in-out;
+      height: 50px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-form button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover:before {
+      transform: translateX(0);
+    }
+
+    .contact-form button:hover {
+      background-color: #c62828;
+      box-shadow: 0 12px #a61d1a;
+    }
+
+    .contact-form button:active {
+      background-color: #a61d1a;
+      box-shadow: 0 5px #a61d1a;
+      transform: translateY(4px);
+    }
+
+    .restaurant-info {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .restaurant-info-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      margin: 0 20px;
+    }
+
+    .restaurant-info-card h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .restaurant-info-card p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .menu-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .menu-title {
+      font-family: myFirstFont;
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .menu-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .menu-item h4 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .menu-item p {
+      font-size: 16px;
+      color: #666;
+    }
+    .mail{
+      font-family: myFirstFont;
+      position: absolute;
+      top: 128px;
+      left: 52%  
+    }
+    
+    
+    .number{
+      position: absolute;
+      top: 22%;
+      left: 15px;
+      font-family: myFirstFont;
+      text-decoration: none;
+      list-style-type : none;
+      z-index: 1; /* add this line */
+     
+    }
+    .rectangle{
+      width: 250px;
+  height: 220px; /* set a fixed height */
+  background-color: #ffffff; /* set a background color */
+  border: 1px solid #ffffff; /* set a border width and color */
+  position: absolute;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  top: 22%;
+  left: 55px;
+  z-index: -1; /* add this line */
+    }
+    .picture img{
+      width: 38px;
+      height: 38px;
+      position: absolute;
+      top: 30px;
+      left: 80%;
+    }
+    .mailimg img{
+      width: 38px;
+      height: 38px;
+      position: absolute;
+      top: 30px;
+      left: 84%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="mainlink">
+        <span>Manchow</span>Wok
+      </div>
+      <ul class="links">
+        <li><a href="index (1).html" target="_blank">Home</a></li>
+        <li><a href="menu.html" target="_blank">Menu</a></li>
+        <li><a href="about.html" target="_blank">About</a></li>
+        <li><a href="#">Contact</a></li>
+        
+          <h3>
+          <ul class="number">
+            <h2><li> Contact Number</li></h2>
+            <li> +971 0556262074</li>
+             <li> +971 0581275401</li>
+             <li> +971 026354281</li>
+             <li> +971 026443427</li>
+             <li> +971 026414856</li>
+           </ul>
+          </h3>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-container">
+      <div class="contact-card">
+        <h1 class="contact-title">Contact Us</h1>
+        <form class="contact-form">
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+  <h3 class="mail">Manchowok.rest@gmail.com
+    
+    
+  </h3>
+  <div class="mailimg">
+    <img src="mail.png">
+  </div>
+  
+  <div class="rectangle"></div>
+  <div class="picture">
+    <a href="https://www.facebook.com/share/oP2EL9D1vSEH2K4V/?mibextid=LQQJ4d" target="_blank">
+        <img src="facebook.png">
+    </a>
+</body>
+</html>
